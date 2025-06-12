@@ -1,15 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+
+  /* Color: primary */
+
+  --color-primary-filled: var(--color-sky-700);
+  --color-primary-filled-hover: var(--color-sky-600);
+  --color-primary-filled-text: var(--color-sky-50);
+  --color-primary-transparent-hover: var(--color-primary-filled-text);
+  --color-primary-transparent-text: var(--color-primary-filled);
+  --color-primary-bordered-hover: var(--color-primary-transparent-hover);
+  --color-primary-bordered-text: var(--color-primary-filled);
+
+  /* Color: secondary */
+
+  --color-secondary-filled: var(--color-slate-700);
+  --color-secondary-filled-hover: var(--color-slate-600);
+  --color-secondary-filled-text: var(--color-slate-50);
+  --color-secondary-transparent-hover: var(--color-secondary-filled-text);
+  --color-secondary-transparent-text: var(--color-secondary-filled);
+  --color-secondary-bordered-hover: var(--color-secondary-transparent-hover);
+  --color-secondary-bordered-text: var(--color-secondary-filled);
+
+  /* Color: success */
+
+  --color-success-filled: var(--color-teal-700);
+  --color-success-filled-hover: var(--color-teal-600);
+  --color-success-filled-text: var(--color-teal-50);
+  --color-success-transparent-hover: var(--color-success-filled-text);
+  --color-success-transparent-text: var(--color-success-filled);
+  --color-success-bordered-hover: var(--color-success-transparent-hover);
+  --color-success-bordered-text: var(--color-success-filled);
+
+  /* Color: danger */
+
+  --color-danger-filled: var(--color-rose-700);
+  --color-danger-filled-hover: var(--color-rose-600);
+  --color-danger-filled-text: var(--color-rose-50);
+  --color-danger-transparent-hover: var(--color-danger-filled-text);
+  --color-danger-transparent-text: var(--color-danger-filled);
+  --color-danger-bordered-hover: var(--color-danger-transparent-hover);
+  --color-danger-bordered-text: var(--color-danger-filled);
+
+  /* Color: warning */
+
+  --color-warning-filled: var(--color-yellow-700);
+  --color-warning-filled-hover: var(--color-yellow-600);
+  --color-warning-filled-text: var(--color-yellow-50);
+  --color-warning-transparent-hover: var(--color-warning-filled-text);
+  --color-warning-transparent-text: var(--color-warning-filled);
+  --color-warning-bordered-hover: var(--color-warning-transparent-hover);
+  --color-warning-bordered-text: var(--color-warning-filled);
+
+  /* Utility Colors */
+
+  --color-subtext: var(--color-slate-700);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +68,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
