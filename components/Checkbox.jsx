@@ -20,7 +20,7 @@ const Checkbox = ({ color, children, ...rest }) => {
   }
 
   return (
-    <span className="flex items-center gap-2">
+    <span className="flex items-center gap-2 select-none">
       <input id="chk" name="chk" type="checkbox" {...rest} className={style} />
       <label htmlFor="chk" className="cursor-pointer">
         {children}

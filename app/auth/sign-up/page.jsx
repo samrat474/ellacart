@@ -4,8 +4,10 @@ import Logo from "@/components/base-app/Logo";
 import Button from "@/components/Button";
 import Checkbox from "@/components/Checkbox";
 import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 import Input from "@/components/Input";
 import { useAuth } from "@/lib/auth-context";
+import getError from "@/lib/error";
 import { app } from "@/lib/firebase.config";
 import { getAuth, updateProfile } from "firebase/auth";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
@@ -27,6 +29,7 @@ export default function SignUp() {
   const { signUp } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const auth = getAuth(app);
   const db = getFirestore(app);
@@ -34,7 +37,6 @@ export default function SignUp() {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    console.log("Clicked");
     setError("");
     setLoading(true);
     if (data.retypePassword !== data.password) {
@@ -52,8 +54,8 @@ export default function SignUp() {
               addDoc(collection(db, "users"), {
                 uid: user?.user.uid,
                 dob: new Date(`${data.year}-${data.month}-${data.day}`),
-              }).catch((err) => {
-                setError(err.message);
+              }).catch((error) => {
+                setError(getError(error));
                 setLoading(false);
               });
             })
@@ -63,7 +65,7 @@ export default function SignUp() {
             });
         })
         .catch((error) => {
-          setError(error.message);
+          setError(getError(error));
           setLoading(false);
         });
     }
@@ -85,7 +87,7 @@ export default function SignUp() {
           </div>
           <div className="flex flex-col items-center">
             <Logo />
-            <div className="text-3xl mt-4 font-semibold">Hello there.</div>
+            <Heading size={3}>Hello there.</Heading>
             <div className="text-lg text-subtext">
               Let&apos;s get you started with an Ellacart&trade; account.
             </div>
@@ -181,7 +183,7 @@ export default function SignUp() {
           <Input
             placeholder="Password"
             icon={KeyIcon}
-            type="password"
+            type={showPassword ? "text" : "password"}
             required
             value={data.password}
             onChange={(e) =>
@@ -194,7 +196,7 @@ export default function SignUp() {
           <Input
             placeholder="Retype password"
             icon={KeyIcon}
-            type="password"
+            type={showPassword ? "text" : "password"}
             required
             value={data.retypePassword}
             onChange={(e) =>
@@ -204,7 +206,12 @@ export default function SignUp() {
               })
             }
           />
-          <Checkbox>Show password</Checkbox>
+          <Checkbox
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+          >
+            Show password
+          </Checkbox>
           <Button type="submit" loading={loading}>
             Sign up
           </Button>

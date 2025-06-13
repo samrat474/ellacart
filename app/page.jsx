@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import Container from "@/components/Container";
+import Links from "@/components/Links";
 import { app } from "@/lib/firebase.config";
 import { getAuth } from "firebase/auth";
 
@@ -13,7 +14,12 @@ export default function Home() {
         laudantium delectus ab iusto molestias incidunt quam odio porro suscipit
         illum aspernatur.
         <Button uri="d">sd</Button>
+        <Links uri="hola">hello</Links>
       </Container>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
     </div>
   );
 }

@@ -26,15 +26,15 @@ const Container = ({ children, size }) => {
     case "5xl":
       style += "max-w-5xl";
       break;
-    case "6xl":
-      style += "max-w-6xl";
+    case "fluid":
+      style += "max-w-[1400px]";
       break;
     case "7xl":
       style += "max-w-7xl";
       break;
-    case "fluid":
+    case "6xl":
     default:
-      style += "md:px-8 lg:px-16 2xl:px-32";
+      style += "max-w-6xl";
   }
 
   return <div className={style}>{children}</div>;

@@ -8,11 +8,13 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "./firebase.config";
+import { usePathname, useRouter } from "next/navigation";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const router = useRouter();
   const auth = getAuth(app);
   useEffect(() => {
     const checkAuth = onAuthStateChanged(auth, (user) => {

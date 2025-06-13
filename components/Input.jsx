@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-
 const Input = ({ placeholder, type, color, icon, ...rest }) => {
   let style =
     "border-2 border-subtext relative border-secondary rounded group focus-within:ring-2 ";
