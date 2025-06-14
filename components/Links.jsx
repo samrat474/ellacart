@@ -3,7 +3,7 @@ import Link from "next/link";
 const Links = ({ children, uri, accent, underlined, colored, ...rest }) => {
   let style = `${
     underlined ? "underline underline-offset-3" : "no-underline"
-  } rounded `;
+  } rounded ${!colored && "text-subtext"} `;
 
   switch (accent) {
     case "secondary":

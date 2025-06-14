@@ -1,5 +1,5 @@
-const Heading = ({ children, size, ...rest }) => {
-  let style = "tracking-tighter font-semibold text-subtext ";
+const Heading = ({ children, size, colored, ...rest }) => {
+  let style = `tracking-tighter font-semibold ${colored && "text-subtext"} `;
 
   switch (size) {
     case 0:

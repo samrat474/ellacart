@@ -37,10 +37,6 @@ const Footer = () => {
           uri: "/resources/exchange-program",
         },
         {
-          text: "Payment methods",
-          uri: "/resources/payment-methods",
-        },
-        {
           text: "Ellacart Store",
           uri: "/resources/ellacart-store",
         },
@@ -62,7 +58,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="py-12 bg-white">
+    <div className="py-12 bg-zinc-50">
       <Container>
         <div className="mb-12 flex items-center gap-2 select-none">
           <span>

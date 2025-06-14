@@ -25,6 +25,7 @@ import { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
 import { useRouter } from "next/navigation";
 import Links from "../Links";
+import Alert from "../Alert";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -192,61 +193,72 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={`bg-white sticky top-0 z-50 transition-all ${
-        scrolled && "shadow-[0_2px_15px_rgba(0,0,0,0.1)]"
-      }`}
-    >
-      <Container size="fluid">
-        <div className="h-16 flex items-center justify-between relative">
-          <div className="flex items-center gap-6">
-            <div className="lg:hidden">
-              <Button
-                icon={showMenu ? X : Menu}
-                variant="transparent"
-                color="secondary"
-                onClick={() => setShowMenu(!showMenu)}
-              />
-            </div>
-            <Link href={"/"}>
-              <Logo />
-            </Link>
-            <div className="lg:flex items-center gap-6 hidden text-sm">
-              {mainNav.map((item, index) => (
-                <Links uri={item.uri} key={index}>
-                  {item.text}
-                </Links>
-              ))}
-            </div>
-          </div>
-          {!user ? (
-            <Button uri="/auth/sign-in">Sign in</Button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <Button
-                icon={ShoppingBag}
-                uri="/cart"
-                variant="transparent"
-                color="secondary"
-              />
-              <button
-                onClick={() => setShowAccount(!showAccount)}
-                className="h-10 w-10 relative overflow-hidden rounded-full cursor-pointer"
-              >
-                <Avatar name={user?.displayName} variant="beam" />
-                {showAccount && (
-                  <span className="absolute inset-0 bg-white/60 grid place-items-center backdrop-blur">
-                    <X size={24} />
-                  </span>
-                )}
-              </button>
-            </div>
-          )}
-          {showAccount && user && <AccountNav />}
+    <>
+      <Alert variant="transparent" color="secondary">
+        <div className="text-center">
+          Now through June 18, get extra exchange offer toward a new phone.{" "}
+          <Links uri="/shop/phone" accent="primary" colored underlined>
+            Shop now
+          </Links>
+          .
         </div>
-      </Container>
-      {showMenu && <MenuNav />}
-    </div>
+      </Alert>
+      <div
+        className={`bg-white sticky top-0 z-50 transition-all ${
+          scrolled && "shadow-[0_2px_15px_rgba(0,0,0,0.1)]"
+        }`}
+      >
+        <Container size="fluid">
+          <div className="h-16 flex items-center justify-between relative">
+            <div className="flex items-center gap-6">
+              <div className="lg:hidden">
+                <Button
+                  icon={showMenu ? X : Menu}
+                  variant="transparent"
+                  color="secondary"
+                  onClick={() => setShowMenu(!showMenu)}
+                />
+              </div>
+              <Link href={"/"}>
+                <Logo />
+              </Link>
+              <div className="lg:flex items-center gap-6 hidden text-sm">
+                {mainNav.map((item, index) => (
+                  <Links uri={item.uri} key={index}>
+                    {item.text}
+                  </Links>
+                ))}
+              </div>
+            </div>
+            {!user ? (
+              <Button uri="/auth/sign-in">Sign in</Button>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Button
+                  icon={ShoppingBag}
+                  uri="/cart"
+                  variant="transparent"
+                  color="secondary"
+                />
+                <button
+                  onClick={() => setShowAccount(!showAccount)}
+                  className="h-10 w-10 relative overflow-hidden rounded-full cursor-pointer"
+                >
+                  <Avatar name={user?.displayName} variant="beam" />
+                  {showAccount && (
+                    <span className="absolute inset-0 bg-white/60 grid place-items-center backdrop-blur">
+                      <X size={24} />
+                    </span>
+                  )}
+                </button>
+              </div>
+            )}
+            {showAccount && user && <AccountNav />}
+          </div>
+        </Container>
+        {showMenu && <MenuNav />}
+      </div>
+    </>
   );
 };
 

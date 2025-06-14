@@ -10,7 +10,7 @@ import { useAuth } from "@/lib/auth-context";
 import getError from "@/lib/error";
 import { app } from "@/lib/firebase.config";
 import { getAuth, updateProfile } from "firebase/auth";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { AlertCircleIcon, ArrowLeft, KeyIcon, MailIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -41,7 +41,7 @@ export default function SignUp() {
     setLoading(true);
     if (data.retypePassword !== data.password) {
       setError(
-        "Please ensure that the Password and Retype password feilds match."
+        "Please ensure that the Password and Retype password feilds match.",
       );
       setLoading(false);
     } else {
@@ -51,9 +51,8 @@ export default function SignUp() {
             displayName: [data.firstName, data.lastName].join(" "),
           })
             .then(() => {
-              addDoc(collection(db, "users"), {
-                uid: user?.user.uid,
-                dob: new Date(`${data.year}-${data.month}-${data.day}`),
+              setDoc(doc(db, "users", user?.user.uid), {
+                birthday: new Date(`${data.year}-${data.month}-${data.day}`),
               }).catch((error) => {
                 setError(getError(error));
                 setLoading(false);
@@ -85,8 +84,10 @@ export default function SignUp() {
               Go Back
             </Button>
           </div>
-          <div className="flex flex-col items-center">
-            <Logo />
+          <div className="flex flex-col items-center gap-4">
+            <div className="mt-6 mb-4">
+              <Logo />
+            </div>
             <Heading size={3}>Hello there.</Heading>
             <div className="text-lg text-subtext">
               Let&apos;s get you started with an Ellacart&trade; account.

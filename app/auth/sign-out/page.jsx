@@ -8,8 +8,10 @@ const { default: Container } = require("@/components/Container");
 const SignOut = () => {
   return (
     <Container size="md">
-      <div className="py-24 flex flex-col items-center">
-        <Logo />
+      <div className="py-24 flex flex-col items-center gap-4">
+        <div className="mb-6">
+          <Logo />
+        </div>
         <Heading size={3}>Goodbye for now.</Heading>
         <div className="mt-1 text-subtext">
           You have successfully signed out from Ellacart&trade;.

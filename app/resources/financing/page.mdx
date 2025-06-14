@@ -1,0 +1,94 @@
+import Container from "@/components/Container";
+import ButtonGroup from "@/components/mdxComponents/button-group"
+import { BadgePercent } from "lucide-react";
+import ImageComponent from "@/components/mdxComponents/image-component"
+import Image from "next/image"
+import Card from "@/components/Card"
+
+export const metadata = {
+  title: "Financing"
+}
+
+export const cardGroup1 = [
+  ["Save big on Phones.", "Get instant cashback on EMI purchases using your American Express credit card when you buy Apple iPhone or Google Pixel.", "https://lh3.googleusercontent.com/8-bceT0hS4QQbTJz24A0dTm_y8KZBa3lP558meYlMiigr407OZiSu-LyaDCbEH8Mi2WDjIeGvnwDT8-3qp8mqE4-Moj-nY9Kt0q8=s3000-w3000-e365-rw-v0-nu", "top", "primary", [
+    {
+      text: "Shop now",
+      uri: "/shop/phones"
+    },
+    {
+      text: "Visit Ellacart Store",
+      uri: "/resources/ellacart-store",
+      variant: "bordered"
+    },
+  ]],
+  ["Flexible finanacing on laptops.", "Get instant cashback and tenure of upto 60 months on EMI purchases using your American Express credit card when you buy Apple MacBook Air or MacBook Pro.", "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mba13-m4-skyblue-gallery1-202503?wid=4000&hei=3074&fmt=jpeg&qlt=90&.v=dFJNbHJtN3hkZlFORmN2VUlkWnZyRXYwRGVrS3RUdEhkRUtkS2E1aGdYZmd1eUJ6eHZMSFFNMld6aTRncXNRUlJWYlIvRkkxemNIb09FY29ZRmVrUDV4ZVYvN2VacDZmMzVpdWVtV014N1RyMTdVV05yRXMxSlVPemtESDIwNVE", "bottom", "danger", [
+    {
+      text: "Shop now",
+      uri: "/shop/laptops"
+    },
+    {
+      text: "Visit Ellacart Store",
+      uri: "/resources/ellacart-store",
+      variant: "bordered"
+    },
+  ]],
+  ["Healthy years ahead.", "Get discount offers and flexible financing when you buy Apple Watch or Pixel Watch.", "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s10-case-unselect-gallery-1-202503?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=T1poMzZuRzBxQ1RzQmhMUHprUE5LZHlVRllKam5abHNZRGludXlMbytKNjZqY1lkK0tzZFpEVlpBSXpHb1VXNVBPMVJocHRGWWdEaGFBbE5iRklMb1hPYW04cW1YR2l1R0RzLzYxenhFZTlwZDRjSG44dlRjQnB4RFJ4d3IvN0o", "", "secondary", [
+    {
+      text: "Shop now",
+      uri: "/shop/watches"
+    },
+    {
+      text: "Visit Ellacart Store",
+      uri: "/resources/ellacart-store",
+      variant: "bordered"
+    },
+  ]],
+  ["Get free accessories.", "Get free accessories with select purchases and huge discounts on accessories on all purchases.", "https://lh3.googleusercontent.com/x3GQsYyEqqfA35PwJ7t2aWEnSy4mB_E5HVUqge_rLT993ZMYGwA_sbKf_iPoMFaWDgb5sU5Dvmc0lEGzXeRhNb8sqr__N4hLeu9o=s3000-w3000-e365-rw-v0-nu", "bottom", "success", [
+    {
+      text: "Shop now",
+      uri: "/shop/accessories"
+    },
+    {
+      text: "Visit Ellacart Store",
+      uri: "/resources/ellacart-store",
+      variant: "bordered"
+    },
+  ]]
+]
+
+<div className="py-24">
+  <Container>
+
+  <div className="flex flex-col gap-16 lg:flex-row items-center">
+    <div className="flex flex-col items-center gap-6 flex-1">
+    # Discover latest offers and flexible payment options.
+    #### Unlock no cost EMI options and bank offers available on Ellacart.
+    
+    <ButtonGroup
+      data={
+        [
+          ["Shop now", "", "", "/shop", ""],
+          ["Calculate EMI", "", "transparent", "/resources/financing/calculate-emi", BadgePercent]
+        ]
+      }
+    />
+    </div>
+    <ImageComponent src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-finish-select-202409-6-1inch-ultramarine?wid=5120&hei=2880&fmt=webp&qlt=70&.v=UXp1U3VDY3IyR1hNdHZwdFdOLzg1V0tFK1lhSCtYSGRqMUdhR284NTN4L28rSU1jVGx4VGxCNEFSdVNXdG1RdzJrQmVLSXFrTCsvY1VvVmRlZkVnMzJKTG1lVWJJT2RXQWE0Mm9rU1V0V0E5L1ZBdzY3RU1aTVdUR3lMZHFNVzE0RzhwM3RLeUk1S0YzTkJVVmF2Ly9R&traceId=1" crop />
+  </div>
+
+  <div className="flex flex-col items-center gap-4 mt-32">
+    ### Financing made simple with our official banking partner.
+
+    <div className="h-32 w-32 relative">
+      <Image src="https://www.americanexpress.com/content/dam/amex/us/merchant/supplies-uplift/product/images/img-WEBLOGO1-01.jpg" fill className="object-cover" alt="AMEX" />
+    </div>
+  </div>
+
+  <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {cardGroup1.map(([title, desc, cover, pos, accent, buttons], index) => (
+      <Card title={title} desc={desc} cover={cover} pos={pos} accent={accent} buttons={buttons} key={index} />
+    ))}
+  </div>
+  
+  </Container>
+</div>

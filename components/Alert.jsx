@@ -92,7 +92,7 @@ const Alert = ({ children, icon, color, variant, ...rest }) => {
           <Icon size={24} />
         </span>
       )}
-      <span>{children}</span>
+      <span className="flex-1">{children}</span>
     </div>
   );
 };

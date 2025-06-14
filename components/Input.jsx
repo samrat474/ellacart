@@ -1,4 +1,4 @@
-const Input = ({ placeholder, type, color, icon, ...rest }) => {
+const Input = ({ placeholder, type, color, icon, large, ...rest }) => {
   let style =
     "border-2 border-subtext relative border-secondary rounded group focus-within:ring-2 ";
   let placeholderStyle = `absolute ${
@@ -39,7 +39,7 @@ const Input = ({ placeholder, type, color, icon, ...rest }) => {
       )}
       <input
         type={type}
-        className={`pt-5 py-1 ${
+        className={`${large ? "lg:text-xl" : "text-base"} pt-5 py-1 ${
           icon ? "pl-13 pr-4" : "px-4"
         } outline-none bg-transparent w-full relative z-10 peer`}
         placeholder=" "

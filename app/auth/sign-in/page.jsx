@@ -54,8 +54,10 @@ export default function SignIn() {
               Go Back
             </Button>
           </div>
-          <div className="flex flex-col items-center">
-            <Logo />
+          <div className="flex flex-col items-center gap-4">
+            <div className="mt-6 mb-4">
+              <Logo />
+            </div>
             <Heading size={3}>Welcome back.</Heading>
             <div className="text-lg text-subtext">
               Sign in to your Ellacart&trade; account.

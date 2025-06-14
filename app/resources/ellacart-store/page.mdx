@@ -1,0 +1,92 @@
+import Container from "@/components/Container";
+import ButtonGroup from "@/components/mdxComponents/button-group"
+import ImageComponent from "@/components/mdxComponents/image-component"
+import { DollarSign, HeartHandshake, PackageOpen, RefreshCw, Search, Trees } from "lucide-react";
+import Input from "@/components/Input"
+import Card from "@/components/Card"
+
+export const metadata = {
+  title: "Ellacart store"
+}
+
+export const susData = [
+  [DollarSign, "Flexible finance", "Latest offers, flexible payment options and no-cost EMIs with available at our stores.", "danger", [
+    {
+      text: "Learn more",
+      uri: "/resources/financing",
+      variant: ""
+    },
+  ]],
+  [HeartHandshake, "Ellacart specialists", "Our in-store specialists help you choose the right device, with in-store demonstrations.", "success"],
+  [RefreshCw, "Exchange program", "Exchange your old device for the device you want and earn cashback when you exchange your old phone.", "warning", [
+    {
+      text: "Learn more",
+      uri: "/resources/exchange-program",
+      variant: ""
+    },
+  ]]
+]
+
+<div className="py-24">
+  <Container>
+  <div className="flex flex-col gap-16 lg:flex-row items-center">
+      <div className="flex flex-col items-center gap-6 flex-1">
+      # Take a trip to our Ellacart Store.
+      #### Shop for devices, one on one with a specialist.
+  
+      <ButtonGroup
+        data={
+          [
+            ["Locate a store", "", "", "#stores", ""],
+            ["Shop online", "", "bordered", "/shop", ""]
+          ]
+        }
+      />
+      </div>
+      <ImageComponent src="https://lh3.googleusercontent.com/fife/ALs6j_HUxON6vSwQ70cfI6tdu9AKubBBrR-QuHThQo5ecAeVQNzgJdWGNjTEs7wGsY1nqTAcs1yHxUFRJ-dUoDzl8NPSLGkpauGgHGT5yydIGsGMcMzlgL9S0XhsdINdapg2G1E2l37DP5JGvD02uF7_J6GT8RytUo7cERzUlFUZyUP5TPvrEkIqGNalQb6oyTxBEVc7AvOnEd5BpPpjINb217yZnA36CdmVzo2NGHGzwpRNi1xJs9JZKx7MzIhpRWyiiJ3Rb75HNO7Hg1Y-vFKTORK0C6HQrcNPfLhyyOvLlWyf0ayp34p0yd6QG9TsA-G0Zm6sSF8SkyeIRhVZFmkAvBtoD4LuNqDSMSqDwNgsI3NWjmULV_FMl8sRpisqujYx7qOUAkTwhePzlrfZKrmnB300J3thHWAgSmim7riP8X8KJidQ3fzJT7lMYx6jC_kfC67CxQPV6dxMNgeKfOdC7Lqd94qzL0w9Bl2ykeJNgupvBb8a-SHy4pIlcB9a6P3CI21WfQX6BGeb7e39Tm_lyI2iiuEkx_eCXlT4Q_6HvbLF_19zAEPuIUkTGh267SyWttE471ezR5xP-RBUfyU_AaarvPvy-T6tp5qWq4hNlcArbXI--74VgEfDRLqq5t34K6DChWnGlxPKQD3zZ3hMo5Ovoa1py7krc-6s0GgsfWhxHNewxSdsIrtw2-5a5nzrpOKvcXk62R3DDhd2d7K_4qlhE6PFh2QY9M3Bmo_xGlS2Mw9dJfzPuh2cHsZ7cww2Pmds4ivofKdcIVuKpHgthih92uGK8mVtoNIJgClcaaYaV60UQY7GG7RxQCOIMPp6suJ5nn2FP-wsXdSJPsZE-39G4o97D9xvOXsc7WKfmsLs5ja8xKP6G4vxOq3ZjCHhVZ_eZqKDlsfDVCiQGRCq-fFQV50SpL523pPR7H_Qwt8SBHFrHVBGlL4Ho-EISDjY5CBLQ-za7x5_DIvDtxi-uLwSrGBfpW1g6jkJ_dqIve2A60mcfmfFvzNOjKHxPiumWa8kn2sR8bAVVYQJBD1d1wu8LKKbsoqLRSqAnYlMW-eNdIBsJYmewU1JksX21S2YBujlz2S9t9BVOSI24vuFLNDK_wjcBnBbBk-YSalYMwyiuPGwcMa99ou9aHTDGYsJhVVwCnkbbWebqbaJyP1Vfh3VVcZLDpPbuquZDb3zmFw39uB79oPCuh75MlBK-guyyb-AEEKDMLshWt9W-R2-UKmHCFdkpag5_DPsWBB9f0nPplmXE3VagWnvAf1GekfWhE6bwGuEbuaExrYYsxbVvEsFQZ-dIj_odFsZBrTbPoyDgr479UME0OCkGlB5VjtkJdbcz4eJnQ9wm-GKWgreHAgsX2-gIFGtBZYv6wPPotPEW6u_-VoFrezvjvnuTSdKtD9llY-qbDBc2cBVyBU3hwQiJwdXdOmLScYtaPpoCfOnp77dbZDb71exOdpi1b8NdVJNHNU_U7ffnFHkaJevz8A9cVhx_nDfMzQvJ1aRkiqYv8LUd87zWN7it06TbOcs-fQ27RpPHH85yHxh1w=s1024" pos="bottom" />
+    </div>
+  </Container>
+
+  <div className="mt-32 bg-zinc-50 py-24" id="stores">
+    <Container>
+      ## Locate a store
+      <div className="mt-16 max-w-xl mx-auto">
+        <Input placeholder="Search for a store" icon={Search} type="text" large />
+      </div>
+    </Container>
+  </div>
+
+  <Container>
+    <div className="mt-32 flex flex-col gap-6">
+      
+        ## Same seamless experience even at stores.
+
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {susData.map(([icon, title, desc, accent, buttons], index) => (
+            <Card title={title} desc={desc} icon={icon} accent={accent} buttons={buttons} key={index} />
+          ))}
+        </div>
+
+    </div>
+  </Container>
+
+  <Container>
+    <div className="mt-64 flex flex-col items-center gap-6">
+      
+      ## Get your device repaired at Ellacart&trade; Store.
+
+      #### Start a repair request below to make a reservation with a repair specialist to get help with a hardware repair.
+
+      <ButtonGroup
+      data={
+        [
+          ["Visit a store", "", "", "#stores", ""],
+          ["Schedule pickup", "", "bordered", "/services/repair/schedule  ", ""]
+        ]
+      }
+      />        
+
+    </div>
+  </Container>
+
+</div>

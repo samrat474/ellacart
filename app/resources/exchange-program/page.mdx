@@ -1,0 +1,55 @@
+import Container from "@/components/Container";
+import ButtonGroup from "@/components/mdxComponents/button-group"
+import ImageComponent from "@/components/mdxComponents/image-component"
+import { DollarSign, PackageOpen, Trees } from "lucide-react";
+import Card from "@/components/Card"
+
+export const metadata = {
+  title: "Exchange program"
+}
+
+export const susData = [
+  [PackageOpen, "Convenience", "Our executive collects your old device at your convenience and delivers the new device providing an instant exchange credit.", "primary"],
+  [DollarSign, "Savings", "Once our executive collects your old device, an exchange value is issued based on the device's condition.", "warning"],
+  [Trees, "Sustainability", "Recycle and repurpose your old device to help reduce e-waste.", "success"],
+]
+
+<div className="py-24">
+  <Container>
+  
+  <div className="flex flex-col gap-16 lg:flex-row items-center">
+      <div className="flex flex-col items-center gap-6 flex-1">
+      # Exchange for the device you want.
+      #### Upgrade to a new device today and earn cashback when you exchange your old phone.
+  
+      <ButtonGroup
+        data={
+          [
+            ["Shop now", "", "", "/shop", ""],
+            ["Exchange at store", "", "bordered", "/resources/ellacart-store", ""]
+          ]
+        }
+      />
+      </div>
+      <ImageComponent src="https://lh3.googleusercontent.com/NVYOKg2PRHZHZ8bcOhq7QAAxCKpMp23Qygt8BHif9bdFx2r5lAsHtlpaiF5o1FA_qIIDfpE1GIxMidkBB5zGlXp80utftEuEIA=s3000-w3000-e365-rw-v0-nu" pos="bottom" />
+    </div>
+  
+  </Container>
+  <Container>
+
+  <div className="mt-32 flex flex-col gap-8 items-center">
+    
+    ## Why use Ellacart&trade; exchange program?
+
+    #### The Ellacart exchange program makes upgrading to the latest device easy, affordable, and environmentally friendly.
+
+    <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {susData.map(([icon, title, desc, accent], index) => (
+        <Card title={title} desc={desc} icon={icon} accent={accent} key={index} />
+      ))}
+    </div>
+
+  </div>
+
+  </Container>
+</div>
