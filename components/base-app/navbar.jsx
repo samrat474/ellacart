@@ -194,15 +194,6 @@ const Navbar = () => {
 
   return (
     <>
-      <Alert variant="transparent" color="secondary">
-        <div className="text-center">
-          Now through June 18, get extra exchange offer toward a new phone.{" "}
-          <Links uri="/shop/phone" accent="primary" colored underlined>
-            Shop now
-          </Links>
-          .
-        </div>
-      </Alert>
       <div
         className={`bg-white sticky top-0 z-50 transition-all ${
           scrolled && "shadow-[0_2px_15px_rgba(0,0,0,0.1)]"
@@ -258,6 +249,15 @@ const Navbar = () => {
         </Container>
         {showMenu && <MenuNav />}
       </div>
+      <Alert variant="transparent" color="secondary">
+        <div className="text-center">
+          Now through June 18, get extra exchange offer toward a new phone.{" "}
+          <Links uri="/shop/phone" accent="primary" colored underlined>
+            Shop now
+          </Links>
+          .
+        </div>
+      </Alert>
     </>
   );
 };
