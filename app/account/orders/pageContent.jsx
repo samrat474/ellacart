@@ -26,20 +26,24 @@ export default function OrderComponents() {
   const { user } = useAuth();
 
   useEffect(() => {
-    const fetchData = () => {
-      setLoading(true);
-      getDoc(doc(db, "users", user?.uid))
-        .then((doc) => {
-          setOrders(doc.data().orders);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error(error.message);
-          setLoading(false);
-        });
-    };
+    if (user) {
+      const fetchData = () => {
+        setLoading(true);
+        getDoc(doc(db, "users", user?.uid))
+          .then((doc) => {
+            setOrders(doc.data().orders);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error(error.message);
+            setLoading(false);
+          });
+      };
 
-    fetchData();
+      fetchData();
+    } else {
+      setLoading(true);
+    }
   }, []);
 
   return (
