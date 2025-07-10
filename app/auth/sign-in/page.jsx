@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import Input from "@/components/Input";
 import { useAuth } from "@/lib/auth-context";
+import getError from "@/lib/error";
 import { AlertCircleIcon, ArrowLeft, KeyIcon, MailIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
