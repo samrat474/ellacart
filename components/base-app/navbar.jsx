@@ -1,16 +1,10 @@
 import {
-  BadgeDollarSign,
   Cable,
-  ChevronRight,
-  CircleUserRound,
-  CircleX,
   Headphones,
   Laptop,
-  LifeBuoy,
   LogOut,
   Menu,
   Package,
-  Settings,
   ShoppingBag,
   Smartphone,
   Watch,
@@ -25,7 +19,6 @@ import { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
 import { useRouter } from "next/navigation";
 import Links from "../Links";
-import Alert from "../Alert";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -50,11 +43,6 @@ const Navbar = () => {
       text: "Orders",
       uri: "/account/orders",
     },
-    {
-      icon: Settings,
-      text: "Settings",
-      uri: "/account/settings",
-    },
   ];
 
   const mainNav = [
@@ -71,7 +59,7 @@ const Navbar = () => {
     {
       icon: Watch,
       text: "Watches & Trackers",
-      uri: "/shop/watches",
+      uri: "/shop/watches-trackers",
     },
     {
       icon: Headphones,
@@ -82,11 +70,6 @@ const Navbar = () => {
       icon: Cable,
       text: "Accessories",
       uri: "/shop/accessories",
-    },
-    {
-      icon: BadgeDollarSign,
-      text: "Offers",
-      uri: "/offers",
     },
   ];
 
@@ -120,22 +103,17 @@ const Navbar = () => {
         onClick={() => setShowAccount(false)}
       >
         <div className="py-2 border-b border-zinc-200">
-          <Link href="/account">
-            <div className="flex px-6 py-2 items-center gap-4 select-none hover:bg-secondary-transparent-hover">
-              <span className="h-12 w-12 bg-zinc-200 rounded-full grid place-items-center">
-                <Avatar name={user.displayName} variant="beam" />
+          <div className="flex px-6 py-2 items-center gap-4 select-none">
+            <span className="h-12 w-12 bg-zinc-200 rounded-full grid place-items-center">
+              <Avatar name={user.displayName} variant="beam" />
+            </span>
+            <span className="flex flex-col">
+              <span className="font-medium text-sm text-subtext">
+                {user.displayName}
               </span>
-              <span className="flex flex-col">
-                <span className="font-medium text-sm text-subtext">
-                  {user.displayName}
-                </span>
-                <span className="text-xs text-subtext">{user.email}</span>
-              </span>
-              <span>
-                <ChevronRight size={24} />
-              </span>
-            </div>
-          </Link>
+              <span className="text-xs text-subtext">{user.email}</span>
+            </span>
+          </div>
         </div>
         <div className="flex flex-col py-2 border-b border-zinc-200">
           {sideNav.map((item, index) => (
@@ -180,13 +158,11 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex flex-col tracking-tight">
-          {[
-            [Package, "Your orders", "/account/orders"],
-            [Settings, "Account settings", "/account/settings"],
-            [LifeBuoy, "Support", "/support"],
-          ].map(([icon, text, uri], index) => (
-            <HorNavLinks icon={icon} text={text} uri={uri} key={index} />
-          ))}
+          {[[Package, "Your orders", "/account/orders"]].map(
+            ([icon, text, uri], index) => (
+              <HorNavLinks icon={icon} text={text} uri={uri} key={index} />
+            ),
+          )}
         </div>
       </div>
     );
@@ -249,15 +225,6 @@ const Navbar = () => {
         </Container>
         {showMenu && <MenuNav />}
       </div>
-      <Alert variant="transparent" color="secondary">
-        <div className="text-center">
-          Now through June 18, get extra exchange offer toward a new phone.{" "}
-          <Links uri="/shop/phone" accent="primary" colored underlined>
-            Shop now
-          </Links>
-          .
-        </div>
-      </Alert>
     </>
   );
 };

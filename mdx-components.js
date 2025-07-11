@@ -1,9 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { highlight } from "sugar-high";
 import Heading from "./components/Heading";
-import Image from "next/image";
-import ImageComponent from "./components/mdxComponents/image-component";
 import Links from "./components/Links";
 
 const components = {

@@ -8,9 +8,11 @@ const nextConfig = {
   },
   images: {
     domains: [
-      "store.storeimages.cdn-apple.com",
-      "www.americanexpress.com",
+      "m.media-amazon.com",
       "lh3.googleusercontent.com",
+      "www.americanexpress.com",
+      "images.unsplash.com",
+      "store.storeimages.cdn-apple.com",
     ],
   },
 };

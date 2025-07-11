@@ -2,7 +2,7 @@ import { Loader } from "lucide-react";
 import Link from "next/link";
 
 const Button = ({ color, variant, children, icon, uri, loading, ...rest }) => {
-  let style = `cursor-pointer p-2 rounded font-semibold border-2 active:opacity-95 flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed `;
+  let style = `cursor-pointer p-2 rounded font-semibold border-2 active:opacity-95 flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed text-nowrap `;
 
   switch (color) {
     case "secondary":
