@@ -16,7 +16,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { Calendar } from "lucide-react";
+import { Calendar, Hash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -112,6 +112,12 @@ export default function OrderComponents() {
                     </Link>
                     <div className="mt-6 text-xl font-semibold">
                       ${item.data.price}
+                    </div>
+                    <div className="mt-6 flex items-center gap-4">
+                      <Hash />
+                      <span>
+                        Order id: <span className="select-all">{item.id}</span>
+                      </span>
                     </div>
                     <div className="mt-6 flex items-center gap-4">
                       <Calendar />

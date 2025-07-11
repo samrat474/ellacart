@@ -72,8 +72,8 @@ function Checkout() {
         time: new Date(),
         delivery: Math.floor(Math.random() * 8) + 4,
       })
-        .then(() => {
-          router.push("/orders/confirm-order");
+        .then((order) => {
+          router.push(`/account/orders/confirm-order/${order.id}`);
         })
         .catch((err) => {
           setError(err.message);
